@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="js/index.js"></script>
+</head>
+
+<body>
+  <div class="menu-container">
+    <header>
+      <img src="/img/logogreta.png" alt="Logo Animaltraffic">
+    </header>
+    <h1>Espace membre</h1>
+    <form action="login.php" method="post" id="form">
+      <input type="text" class="user" name="user" id="user" placeholder="Utilisateur" required>
+      <input type="password" class="user" name="pass" id="pass" pattern="[A-za-z0-9@$*!? ]{1,}" required placeholder=" Mot de passe">
+      <input type="submit" value="Connexion" id="send">
+    </form>
