@@ -40,8 +40,6 @@ if ($_POST['type']==='Ajouter'){
             );
         $sql="INSERT INTO animal (id, race, nom, age, sexe, photo, sterile, created) VALUE (:id, :r, :n, :a, :s, :p, :st, :dates)";
         $cnn->saveData($sql, $values);
-        //$qry= $cnn->prepare($sql);
-        //$qry->execute();
         echo '<a href="admin.php">C\'est fait, cliquez ici pour retourner</a>';
     }else echo '<a href="admin.php">Les champ sont mal rempli</a>';
 }
@@ -78,6 +76,17 @@ if ($_POST['type']==='Modifier'){
             "id"=>$_POST['animal'],
             );
         $sql="UPDATE animal SET race=:r, nom=:n, age=:a, sexe=:s, photo=:p, sterile=:st WHERE id=:id";
+        $cnn->saveData($sql, $values);
+        echo '<a href="admin.php">C\'est fait, cliquez ici pour retourner</a>';
+    }else echo '<a href="admin.php">Les champ sont mal rempli</a>';
+}
+if ($_POST['type']==='Dossier'){
+    if(isset($_POST['id']) && !empty($_POST['id']) && isset($_POST['valide']) && !empty($_POST['valide'])){
+        $values=array(
+            "v"=>$_POST['valide'],
+            "id"=>$_POST['id'],
+            );
+        $sql="UPDATE reservation SET valid=:v WHERE id=:id";
         $cnn->saveData($sql, $values);
         echo '<a href="admin.php">C\'est fait, cliquez ici pour retourner</a>';
     }else echo '<a href="admin.php">Les champ sont mal rempli</a>';
